@@ -28,7 +28,7 @@ const Sidebar = (props) => {
 
 const styles = {
   sidebar: {
-    backgroundColor: '#073642',
+    backgroundColor: '#002b36',
     color: 'white',
     width: '12rem',
     padding: '1rem 0',
