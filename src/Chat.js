@@ -9,35 +9,17 @@ class Chat extends Component {
     super()
 
     this.state = {
-      messages: [
-        {
-          id: 0,
-          user: {
-            uid: 123,
-            displayName: 'Charlene',
-            avatar: '' // Add image path if needed?
-          },
-          body: 'Yeet and skeet.',
-        },
-        {
-          id: 1,
-          user: {
-            uid: 456,
-            displayName: 'Lauren',
-            avatar: '' // Same
-          },
-          body: 'Omg hiiii',
-        },
-      ], // Trailing comma
+      messages: [],
     }
   }
 
   addMessage = (body) => {
     const messages = [...this.state.messages]
+    const user = this.props.user
 
     messages.push({
       id: `${this.props.user.uid}-${Date.now()}`,
-      user: this.props.user,
+      user,
       body,
     })
 

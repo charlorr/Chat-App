@@ -2,11 +2,18 @@ import React from 'react'
 
 import Message from './Message'
 
-const MessageList = (props) => {
+const MessageList = ({ messages }) => {
     return (
-        <div className="MessageList" style={styles} >
+        <div className="MessageList" style={styles.messageList} >
+            <div className="roomAnnouncement" style={styles.roomAnnouncement}>
+                <h3 style={styles.h3}>
+                    #general
+                </h3>
+                <p>This is the very beginning of the #general room.</p>
+            </div>
+            
             {
-                props.messages.map(msg => (
+                messages.map(msg => (
                     <Message message={msg} key={msg.id} />
                 ))
             }
@@ -15,18 +22,20 @@ const MessageList = (props) => {
 }
 
 const styles = {
-    backgroundColor: '#073642',
-    flex: 1,
-    paddingBottom: '1rem',
-    overflowY: 'scroll',
-}
+    messageList: {
+        backgroundColor: '#073642',
+        flex: 1,
+        paddingBottom: '1rem',
+        overflowY: 'scroll',
+    },
 
-const roomStyles = {
-    padding: '2rem 1rem',
-}
+    roomAnnouncement: {
+        padding: '2rem 1rem',
+    },
 
-const roomStylesThree = {
-    fontSize: '1.5rem',
+    h3: {
+        fontSize: '1.5rem',
+    },
 }
 
 // Need to add roomStyles to .roomAnnouncement and "" h3
