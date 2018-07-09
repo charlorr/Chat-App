@@ -19,7 +19,7 @@ class MessageForm extends Component {
     render() {
         return (
             <form 
-                className="MessageForm"
+                className={`MessageForm ${css(styles.messageForm)}`}
                 onSubmit={this.handleSubmit}
             >
                 <div className={css(styles.icon)}>

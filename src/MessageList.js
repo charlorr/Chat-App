@@ -24,6 +24,7 @@ const MessageList = ({ messages }) => {
 const styles = {
     messageList: {
         backgroundColor: '#073642',
+        color: 'white',
         flex: 1,
         paddingBottom: '1rem',
         overflowY: 'scroll',

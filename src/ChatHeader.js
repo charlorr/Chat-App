@@ -24,11 +24,11 @@ const styles = {
     h2: {
     fontSize: '1.1rem',
     margin: 0,
-    color: '#fdf6e3',
+    color: 'white',
     },
 
     p: {
-    color: '#fdf6e3',
+    color: '#ccc',
     margin: 0,
     fontSize: '0.8rem',
     },

@@ -19,7 +19,7 @@ const styles = {
   sidebar: {
     backgroundColor: '#002b36',
     color: 'white',
-    width: '12rem',
+    width: '16rem',
     padding: '1rem 0',
     display: 'flex',
     flexDirection: 'column',
