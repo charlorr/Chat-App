@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import ChatHeader from './ChatHeader'
 import MessageList from './MessageList'
 import MessageForm from './MessageForm'
+//import { base } from './base'
 
 class Chat extends Component {
   constructor() {
@@ -25,7 +26,19 @@ class Chat extends Component {
 
     this.setState({ messages })
   }
-  
+/*
+  componentWillMount() {
+    this.messagesRef = base.syncState('messages', {
+      context: this,
+      state: 'messages',
+      asArray: true
+    })
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.messagesRef)
+  }
+*/
   render() {
     return (
       <div className="Chat" style={styles} >
