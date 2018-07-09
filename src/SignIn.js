@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
+import { auth, googleProvider, githubProvider } from './base'
+
 class SignIn extends Component {
   state = {
     email: '',
   }
 
+  authenticate = (provider) => {
+    auth.signInWithPopup(provider)
+  }
+/*
   handleChange = (ev) => {
     this.setState({ email: ev.target.value })
   }
@@ -18,7 +24,7 @@ class SignIn extends Component {
       email: this.state.email,
     })
   }
-
+*/
   render() {
     return (
       <div className={`SignIn ${css(styles.signIn)}`}>
@@ -33,7 +39,7 @@ class SignIn extends Component {
             className={css(styles.form)}
             onSubmit={this.handleSubmit}
           >
-            <label
+{/*            <label
               htmlFor="email"
               className={css(styles.label)}
             >
@@ -47,14 +53,32 @@ class SignIn extends Component {
               value={this.state.email}
               onChange={this.handleChange}
             />
-            <button
+              <button
               type="submit"
               className={css(styles.button)}
             >
               Sign In
             </button>
-          </form>
+*/}
+          <button
+            type="button"
+            className={css(styles.button)}
+            onClick={() => this.authenticate(googleProvider)}
+          >
+            <i className={`fab fa-google ${css(styles.brandIcon)}`}></i>
+            Sign in with Google
+          </button>
 
+          <button
+            type="button"
+            className={css(styles.button)}
+            onClick={() => this.authenticate(githubProvider)}
+          >
+            <i className={`fab fa-github ${css(styles.brandIcon)}`}></i>
+            Sign in with Github
+          </button>
+
+          </form>
           <div className="blurb">
             <h2 className={css(styles.h2)}>
               You're in good company.
@@ -86,7 +110,7 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    color: '#ff3344',
+    color: '#073642',
     fontWeight: 400,
     textTransform: 'uppercase',
     lineHeight: '80px',
@@ -142,9 +166,18 @@ const styles = StyleSheet.create({
     padding: '1rem 2rem',
     fontSize: '1.2rem',
     borderRadius: '1rem',
-    backgroundColor: '#ff3333',
+    backgroundColor: '#073642',
     color: 'white',
     width: '20rem',
+  },
+
+  github: {
+    marginBottom: 0,
+    // background Color? 
+  },
+
+  brandIcon: {
+    marginRight: '1rem',
   },
 })
 

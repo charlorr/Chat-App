@@ -59,8 +59,9 @@ const styles = StyleSheet.create({
         display: 'flex',
         borderRadius: '0.5rem',
         alignItems: 'center',
-        backgroundColor: 'white',
+        backgroundColor: '#073642',
         color: '#586e75',
+        padding: '0 0.5rem',
         padding: '0 0.5rem',
         fontSize: '1.2rem',
     },
@@ -73,6 +74,7 @@ const styles = StyleSheet.create({
 
         ':focus': {
             outline: 0,
+            color: 'white'
         },
     },
 

@@ -1,6 +1,7 @@
 import firebase from 'firebase/app'
 import Rebase from 're-base'
 import 'firebase/database'
+import 'firebase/auth'
 
 const config = {
     apiKey: "AIzaSyBhJtuF7kip6rX5cpYUQMmh9bKeVwuthpg",
@@ -14,4 +15,8 @@ const config = {
 const app = firebase.initializeApp(config)
 const base = Rebase.createClass(app.database())
 
-export { base }
+export const auth = firebase.auth()
+export const googleProvider = new firebase.auth.GoogleAuthProvider()
+export const githubProvider = new firebase.auth.GithubAuthProvider()
+
+export default base

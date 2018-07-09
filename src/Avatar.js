@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Avatar = ({ user }) => {
-    const imageUrl = `https://api.adorable.io/avatar/40/${user.email}.png`
+    const imageUrl = user.photoURL || `https://api.adorable.io/avatar/40/${user.email}.png`
     
     return (
         <div
@@ -20,6 +20,7 @@ const styles = {
     fontSize: '1rem',
     borderRadius: '20px',
     marginRight: '0.5rem',
+    backgroundSize: '40px 40px'
 }
 
 export default Avatar
