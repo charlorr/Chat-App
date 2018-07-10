@@ -62,7 +62,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#073642',
         color: '#586e75',
         padding: '0 0.5rem',
-        padding: '0 0.5rem',
         fontSize: '1.2rem',
     },
 

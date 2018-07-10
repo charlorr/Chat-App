@@ -1,5 +1,6 @@
 {
   "name": "chat-app",
+  "homepage": "https://tik-tok-11220.firebaseapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

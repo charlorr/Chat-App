@@ -17,6 +17,11 @@ const MessageList = ({ messages }) => {
                     <Message message={msg} key={msg.id} />
                 ))
             }
+            {// Scroll to bottom
+            }
+            <div style={{ float:"left", clear: "both" }}
+                 ref={(el) => {this.messagesEnd = el }}>
+            </div>
         </div>
     )
 }

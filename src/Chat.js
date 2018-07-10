@@ -13,6 +13,27 @@ class Chat extends Component {
       messages: [],
     }
   }
+  
+  /*scrollToBottom = () => {
+    this.scrollBottom.scrollIntoView({ behavior: 'smooth' })
+  }
+  */
+  componentDidMount() {
+    this.messagesRef = base.syncState('messages/general', {
+      context: this,
+      state: 'messages',
+      asArray: true
+    })
+    //this.scrollToBottom();
+  }
+/*
+  componentDidUpdate() {
+    this.scrollToBottom();
+  }
+*/
+  componentWillUnmount() {
+      base.removeBinding(this.messagesRef)
+  }
 
   addMessage = (body) => {
     const messages = [...this.state.messages]
@@ -25,18 +46,6 @@ class Chat extends Component {
     })
 
     this.setState({ messages })
-  }
-
-  componentDidMount() {
-    this.messagesRef = base.syncState('messages/general', {
-      context: this,
-      state: 'messages',
-      asArray: true
-    })
-  }
-
-  componentWillUnmount() {
-    base.removeBinding(this.messagesRef)
   }
 
   render() {
