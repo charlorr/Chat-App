@@ -21,20 +21,30 @@ class Chat extends Component {
 
   
   componentDidMount() {
-    this.path = `messages/${this.props.room}`
+    this.syncMessages()
+  }
+
+  syncMessages() {
+    // Stop syncing with the current endpoint
+    if (this.messagesRef) {
+      base.removeBinding(this.messagesRef)
+    }
+    this.path = `messages/${this.props.room.name}`
     console.log(this.path)
-    this.messagesRef = base.syncState('messages/general', {
+    this.messagesRef = base.syncState(this.path, {
       context: this,
       state: 'messages',
       asArray: true
     })
     //this.scrollToBottom();
   }
-/*
-  componentDidUpdate() {
-    this.scrollToBottom();
+
+  componentDidUpdate(prevProps, _prevState, _snapshot) {
+    if (prevProps.room.name !== this.props.room.name) {
+      this.syncMessages()
+    }
   }
-*/
+
   componentWillUnmount() {
     base.removeBinding(this.messagesRef)
   }

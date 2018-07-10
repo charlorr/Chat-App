@@ -2,25 +2,37 @@ import React, { Component } from 'react'
 
 import Sidebar from './Sidebar'
 import Chat from './Chat'
+import base from './base'
 
 class Main extends Component {
   state = {
     room: {
-      name: 's3morning',
-      description: 'Ask questions and share code',
+      name: 'general',
+      description: 'Rando stuff',
     },
-    rooms: {
-      s3morning: {
-        name: 's3morning',
-        description: 'Ask questions and share code',
-      },
-      general: {
-        name: 'general',
-        description: 'Rando stuff',
-      },
-    },
+    rooms: {},
   }
   
+  componentDidMount() {
+    this.roomsRef = base.syncState(
+      'rooms',
+      {
+        context: this,
+        state: 'rooms',
+        defaultValue: {
+          general: {
+            name: 'general',
+            description: 'Rando stuff',
+          },
+        }
+      }
+    )
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.roomsRef)
+  }
+
   setCurrentRoom = roomName => {
     const room = this.state.rooms[roomName]
     this.setState({ room })
