@@ -18,7 +18,11 @@ class Chat extends Component {
     this.scrollBottom.scrollIntoView({ behavior: 'smooth' })
   }
   */
+
+  
   componentDidMount() {
+    this.path = `messages/${this.props.room}`
+    console.log(this.path)
     this.messagesRef = base.syncState('messages/general', {
       context: this,
       state: 'messages',
@@ -32,7 +36,7 @@ class Chat extends Component {
   }
 */
   componentWillUnmount() {
-      base.removeBinding(this.messagesRef)
+    base.removeBinding(this.messagesRef)
   }
 
   addMessage = (body) => {

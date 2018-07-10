@@ -1,6 +1,12 @@
 import React from 'react'
 
 const Metadata = ({ message }) => {
+  //getCurrentTime() {
+    //const d = new Date()
+   // const d.getHours < 12) 
+   // return
+ // }
+  
   return (
     <div
       className="Metadata"
@@ -10,7 +16,7 @@ const Metadata = ({ message }) => {
         {message.user.displayName}
       </div>
       <div style={styles.time}>
-        1:10 PM
+        4:20 AM
       </div>
     </div>
   )
